@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Sergey Pchelincev"]
   s.email       = ["jalkoby91@gmail.com"]
   s.homepage    = ""
-  s.summary     = %q{Add nifty helpers for bootstrap interface}
-  s.description = %q{simple view helpers that generate part of bootstrap interface}
+  s.summary     = %q{Early version of collection bootstrap helpers for Rails 3.x}
+  s.description = %q{Speed up bilding you interface with bootstrap}
 
   s.rubyforge_project = "bootstrap_helpers"
 
