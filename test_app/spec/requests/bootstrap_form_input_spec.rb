@@ -10,7 +10,7 @@ describe SamplesController do
     page.should have_selector('.sample_form .clearfix label', :text=>'Sample input')
   end
 
-  it 'should have several kind of flash', :js=>true do
+  it 'should have several kind of flash' do
     visit bootstrap_flash_messages_path
     page.should have_selector("div.alert-message", :count=>5)
     page.should have_selector("div.alert-message.error", :text=>'Example of error')
@@ -20,11 +20,6 @@ describe SamplesController do
     page.should have_selector("div.alert-message.warning", :text=>'Another warning info')
     find("div.info a").click
     page.should_not have_selector("div.alert-message.info")
-  end
-
-  it 'should proper generate bootstrap form input' do
-    visit bootstrap_form_input_path
-    page.should have_selector("div.clearfix")
   end
 
 end
