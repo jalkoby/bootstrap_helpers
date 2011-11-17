@@ -14,6 +14,15 @@ module BootstrapHelpers
       end
     end
 
+    def bootstrap_form_for(form_object, legend='', params={})
+      form_for form_object, params do |f|
+        concat(content_tag(:fieldset) do
+          concat content_tag(:legend, legend)
+          yield(f)
+        end)
+      end
+    end
+
     def bootstrap_form_input(title, params={})
       params[:class]="clearfix #{params[:class]}"
       content_tag :div, params do

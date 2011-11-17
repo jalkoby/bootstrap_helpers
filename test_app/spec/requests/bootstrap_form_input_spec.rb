@@ -25,4 +25,12 @@ describe SamplesController do
     page.should_not have_selector("div.alert-message.info")
   end
 
+  it 'should have form resource' do
+    visit bootstrap_forms_for_path
+    page.should have_selector("form.sample")
+    page.should have_selector("form.sample legend", :text=>'Edit post')
+    page.should have_selector("form.sample .clearfix", :count=>3)
+    page.should have_selector("form.sample select")
+  end
+
 end
