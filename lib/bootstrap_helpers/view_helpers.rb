@@ -14,14 +14,23 @@ module BootstrapHelpers
       end
     end
 
-    def bootstrap_form_input(title)
-      content_tag :div, :class=>'clearfix' do
+    def bootstrap_form_input(title, params={})
+      params[:class]="clearfix #{params[:class]}"
+      content_tag :div, params do
         content_tag(:label, title) + content_tag(:div, :class=>'input') { yield }
       end
     end
 
-    def bootstrap_flash_messages
-      content_tag :div, :class=>'flash' do
+    def bootstrap_form_actions(params={})
+      params[:class]="actions #{params[:class]}"
+      content_tag :div, params do
+        yield
+      end
+    end
+
+    def bootstrap_flash_messages(params={})
+      params[:class]="bootstrap_flash_messages #{params[:class]}"
+      content_tag :div, params do
         flash.each do |type, content|
           case content
           when Array

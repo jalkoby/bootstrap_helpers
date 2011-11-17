@@ -6,12 +6,15 @@ describe SamplesController do
     visit root_path
     page.should have_selector("form.sample_form")
     page.should have_selector(".sample_form legend", :text=>'Sample form')
-    page.should have_selector('.sample_form .clearfix')
+    page.should have_selector('.sample_form .clearfix.custom_class')
     page.should have_selector('.sample_form .clearfix label', :text=>'Sample input')
+    page.should have_selector(".sample_form .actions")
+    page.should have_selector('.sample_form .actions a', :count=>2)
   end
 
   it 'should have several kind of flash' do
     visit bootstrap_flash_messages_path
+    page.should have_selector("div.customer_bootstrap_class")
     page.should have_selector("div.alert-message", :count=>5)
     page.should have_selector("div.alert-message.error", :text=>'Example of error')
     page.should have_selector("div.alert-message.success", :text=>'Example of notice')
