@@ -1,0 +1,27 @@
+module BootstrapHelpers
+
+  module FlashMessageProccessor
+
+    private
+    
+      def equal_bootstrap_class(flash_type)
+        case flash_type.to_s.downcase
+        when 'alert'
+          'error'
+        when 'notice'
+          'success'
+        when 'info'
+          'info'
+        else 'warning'
+        end
+      end
+
+      def flash_message_template(message,type)
+        content_tag :div, :class=>"alert-message #{equal_bootstrap_class(type)} fade in" do
+          content_tag(:a, :href=>'#', :class=>'close'){"×"} + content_tag(:p) {message}
+        end
+      end
+
+  end
+
+end
