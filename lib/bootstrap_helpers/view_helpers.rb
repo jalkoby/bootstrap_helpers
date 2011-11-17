@@ -20,7 +20,7 @@ module BootstrapHelpers
 
     def bootstrap_flash_messages
       content_tag :div, :class=>'flash' do
-        flash.reject! do |type, content|
+        flash.each do |type, content|
           case content
           when Array
             content.each {|message| concat flash_message_template(message, type)}
