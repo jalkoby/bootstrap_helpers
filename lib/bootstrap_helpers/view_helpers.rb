@@ -3,7 +3,7 @@ module BootstrapHelpers
 
   module ViewHelpers
 
-    include ::FlashMessageProccessor
+    include FlashMessageProccessor
 
     def bootstrap_form_tag(path,legend='',params={})
       form_tag path, params do
