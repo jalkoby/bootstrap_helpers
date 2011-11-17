@@ -26,14 +26,15 @@ module BootstrapHelpers
     def bootstrap_form_input(title, params={})
       params[:class]="clearfix #{params[:class]}"
       content_tag :div, params do
-        content_tag(:label, title) + content_tag(:div, :class=>'input') { yield }
+        concat content_tag(:label, title) 
+        concat content_tag(:div, :class=>'input') { yield }
       end
     end
 
     def bootstrap_prepended_input(title, symbol, params={})
       bootstrap_form_input(title, params) do
         concat (content_tag(:div, :class=>'input-prepend') do
-          concat concat_tag :span, symbol, :class=>'add-on'
+          concat concat_tag(:span, symbol, :class=>'add-on')
           yield
         end)
       end
