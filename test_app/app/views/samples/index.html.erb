@@ -3,4 +3,8 @@
   <%= bootstrap_form_input ("Custom class", :class=>'custom_class') do%>
     <h2>nvsdnsksdn</h2>
   <%end%>
+  <%= bootstrap_form_actions(:class=>'another_action') do%>
+    <%= link_to 'Foo', '#', :class=>'btn'%>
+    <%= link_to 'Boo', '#', :class=>'btn info'%>
+  <%end%>
 <%end%>
