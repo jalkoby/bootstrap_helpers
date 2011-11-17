@@ -7,7 +7,7 @@ module BootstrapHelpers
 
     def bootstrap_form_tag(path,legend='',params={})
       form_tag path, params do
-        concat content_tag :fieldset do
+        concat content_tag(:fieldset) do
           concat content_tag :legend, legend
           yield
         end
