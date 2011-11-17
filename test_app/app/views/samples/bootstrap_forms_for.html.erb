@@ -1,4 +1,4 @@
-<%= bootstrap_form_for @post, 'Edit post', :url=>'', :class=>'sample' do |f|%>
+<%= bootstrap_form_for @post, 'Edit post', :url=>'', :html=>{:class=>'sample'} do |f|%>
   <%= bootstrap_form_input("Author") {f.text_field :author}%>
   <%= bootstrap_form_input("Title") {f.text_field :title}%>
   <%= bootstrap_form_input("Year") {f.select :year, @years}%>
