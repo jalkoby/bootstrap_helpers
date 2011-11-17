@@ -18,6 +18,8 @@ describe SamplesController do
     page.should have_selector("div.alert-message.info", :text=>'Example of info')
     page.should have_selector("div.alert-message.warning", :text=>'Example of warning(default flash message)')
     page.should have_selector("div.alert-message.warning", :text=>'Another warning info')
+    find("div.info a").click
+    page.should_not have_selector("div.alert-message.info")
   end
 
   it 'should proper generate bootstrap form input' do
