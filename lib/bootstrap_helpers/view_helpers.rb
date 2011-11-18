@@ -58,6 +58,7 @@ module BootstrapHelpers
             concat flash_message_template(content, type)
           end
         end
+        flash.clear
       end
     end
 
