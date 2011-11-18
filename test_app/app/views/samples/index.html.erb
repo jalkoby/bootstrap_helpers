@@ -3,7 +3,7 @@
   <%= bootstrap_form_input ("Custom class", :class=>'custom_class') do%>
     <h2>nvsdnsksdn</h2>
   <%end%>
-  <%= bootstrap_prepended_input("Prepend Input", '%', :class=>'prepended_input'){ content_tag :h2, 'Something' }%>
+  <%= bootstrap_prepended_input("Prepend Input", '%', :class=>'prepended_input') {text_field_tag 'something'}%>
   <%= bootstrap_form_actions(:class=>'another_action') do%>
     <%= link_to 'Foo', '#', :class=>'btn'%>
     <%= link_to 'Boo', '#', :class=>'btn info'%>

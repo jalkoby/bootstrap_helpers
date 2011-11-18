@@ -36,7 +36,7 @@ describe SamplesController do
   it 'should generate bootstrap_prepended_input', :focus=>true do
     visit root_path
     page.should have_selector('div.prepended_input')
-    page.should have_selector("div.prepended_input.input-prepend.add-on", :text=>'%')
+    page.should have_selector("div.prepended_input .input-prepend .add-on", :text=>'%')
   end
 
 end

@@ -34,8 +34,8 @@ module BootstrapHelpers
     def bootstrap_prepended_input(title, symbol, params={})
       bootstrap_form_input(title, params) do
         content_tag(:div, :class=>'input-prepend') do
-          concat content_tag(:span, symbol, :class=>'add-on')
-          yield
+          concat content_tag(:span, symbol, :class=>'add-on') 
+          concat yield
         end
       end
     end
