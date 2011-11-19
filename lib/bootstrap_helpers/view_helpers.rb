@@ -53,8 +53,7 @@ module BootstrapHelpers
         flash.each do |type, content|
           case content
           when Array
-            list = content.map{|item| content_tag :span, item}.join(content_tag :br).html_safe
-            concat flash_message_template(list, type, 'block-message')
+            concat flash_block_template(content, type)
           when String
             concat flash_message_template(content, type)
           end
