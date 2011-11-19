@@ -12,7 +12,7 @@ describe SamplesController do
     page.should have_selector('.sample_form .actions a', :count=>2)
   end
 
-  it 'should have several kind of flash' do
+  it 'should have several kind of flash', :focus=>true do
     visit bootstrap_flash_messages_path
     page.should have_selector("div.customer_bootstrap_class")
     page.should have_selector("div.alert-message", :count=>4)
