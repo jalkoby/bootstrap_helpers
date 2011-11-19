@@ -27,7 +27,6 @@ module BootstrapHelpers
           'data-alert'=>'alert' do
             concat content_tag(:a, '×', :href=>'#', :class=>'close')
             collection.map {|message| content_tag :p, message}
-          end
         end
       end
 
