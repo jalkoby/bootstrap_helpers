@@ -25,11 +25,11 @@ module BootstrapHelpers
       def flash_block_template(collection, type)
         content_tag :div, :class=>"alert-message #{equal_bootstrap_class(type)} block-message fade in", 
           'data-alert'=>'alert' do
-          concat content_tag(:blockquote) do
+          concat (content_tag :blockquote do
             collection.each do |message|
               concat content_tag :p, message
             end
-          end
+          end)
         end
       end
 
