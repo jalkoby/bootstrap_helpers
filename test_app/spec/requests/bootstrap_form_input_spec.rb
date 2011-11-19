@@ -20,7 +20,7 @@ describe SamplesController do
     page.should have_selector("div.alert-message.success", :text=>'Example of notice')
     page.should have_selector("div.alert-message.info", :text=>'Example of info')
     first("div.alert-message.warning").text.should include('Example of warning(default flash message)')
-
+    sleep 40
     find("div.info a").click
     page.should_not have_selector("div.alert-message.info")
   end
