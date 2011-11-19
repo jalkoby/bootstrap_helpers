@@ -26,7 +26,7 @@ module BootstrapHelpers
         content_tag :div, :class=>"alert-message #{equal_bootstrap_class(type)} block-message fade in", 
           'data-alert'=>'alert' do
           content_tag(:blockquote) do
-            collection.map {|message| content_tag :p, message}
+            collection.each {|message| concat content_tag :p, message}
           end
         end
       end
