@@ -42,7 +42,11 @@ describe SamplesController do
     visit bootstrap_tab_items_path
     page.should have_selector("ul.nav li", :count=>4)
     page.should have_selector("ul.nav li.active", :count=>1)
-    first("li.active a")[:href].should == bootstrap_tab_items_path
+    first("li.active a")[:href].should include(bootstrap_tab_items_path.to_s)
+    [root_path, bootstrap_forms_for_path, bootstrap_flash_messages_path].each do |url|
+      visit url
+      first("li.active a")[:href].should include(url.to_s)
+    end
   end
 
 end

@@ -1,9 +1,11 @@
 require 'bootstrap_helpers/flash_message_proccessor'
+require 'bootstrap_helpers/url_processor'
 module BootstrapHelpers
 
   module ViewHelpers
 
     include FlashMessageProccessor
+    include UrlProcessor
 
     def bootstrap_form_tag(path,legend='',params={})
       form_tag path, params do
@@ -63,14 +65,7 @@ module BootstrapHelpers
     end
 
     def bootstrap_navigation_item(title, url_value, params={})
-      item_class = case url_value
-      when Hash
-        url_value[:controller]=controller.controller_name unless url_value[:controller]
-        "active" if url_value[:controller]==controller.controller_name and url_value[:action]==controller.action_name
-      when String
-        "active" if request.fullpath.split("?")[0] == url_value.split("?")[0]
-      end
-      content_tag :li, :class=>item_class do
+      content_tag :li, :class=>navigation_item_class(url_value) do
         link_to title, url_value, params
       end
     end

@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>TestApp</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :all %>
-  <%= csrf_meta_tag %>
-</head>
-<body>
+  <head>
+    <title>TestApp</title>
+    <%= stylesheet_link_tag :all %>
+    <%= javascript_include_tag :all %>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+    <div class="topbar" data-scrollspy="scrollspy">
+      <div class="topbar-inner">
+        <div class="container">
+          <ul class="nav">
+            <%= bootstrap_navigation_item "Root", root_path, :class=>"some_class"%>
+            <%= bootstrap_navigation_item "Bootstrap Forms For", {:controller=>"samples", :action=>'bootstrap_forms_for'}, :class=>"some_class"%>
+            <%= bootstrap_navigation_item "Bootstrap Flash Messages", {:action=>'bootstrap_flash_messages'}, :class=>"some_class"%>
+            <%= bootstrap_navigation_item "Bootstrap Tab Items", bootstrap_tab_items_path, :class=>"some_class"%>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-<%= yield %>
+    <%= yield %>
 
-</body>
+  </body>
 </html>
