@@ -62,7 +62,7 @@ module BootstrapHelpers
       end
     end
 
-    def bootstrap_navigation_item(title, url_value, params={}) do
+    def bootstrap_navigation_item(title, url_value, params={})
       item_class = case url_value
       when Hash
         url_value[:controller]=controller.controller_name unless url_value[:controller]
