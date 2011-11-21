@@ -14,4 +14,6 @@ class SamplesController < ApplicationController
     flash[:just_another_type]=['Example of warning(default flash message)', 'Another warning info']
   end
 
+  def bootstrap_tab_items;end
+
 end

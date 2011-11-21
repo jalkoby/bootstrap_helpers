@@ -38,4 +38,11 @@ describe SamplesController do
     page.should have_selector("div.prepended_input .input-prepend .add-on", :text=>'%')
   end
 
+  it 'should generate tabs in navigation bar', :focus=>true do
+    visit bootstrap_tab_items_path
+    page.should have_selector("ul.nav li", :count=>4)
+    page.should have_selector("ul.nav li.active", :count=>1)
+    first("li.active a")[:href].should == bootstrap_tab_items_path
+  end
+
 end

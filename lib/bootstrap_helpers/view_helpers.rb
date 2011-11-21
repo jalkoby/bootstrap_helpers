@@ -62,6 +62,19 @@ module BootstrapHelpers
       end
     end
 
+    def bootstrap_navigation_item(title, url_value, params={}) do
+      item_class = case url_value
+      when Hash
+        url_value[:controller]=controller.controller_name unless url_value[:controller]
+        "active" if url_value[:controller]==controller.controller_name and url_value[:action]==controller.action_name
+      when String
+        "active" if request.fullpath.split("?")[0] == url_value.split("?")[0]
+      end
+      content_tag :li, :class=>item_class do
+        link_to title, url_value, params
+      end
+    end
+
   end
 
 end
