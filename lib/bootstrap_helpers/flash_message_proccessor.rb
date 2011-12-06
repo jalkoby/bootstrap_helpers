@@ -18,7 +18,7 @@ module BootstrapHelpers
 
       def flash_message_template(message,type)
         content_tag :div, :class=>"alert-message #{equal_bootstrap_class(type)} fade in", 'data-alert'=>'alert' do
-          content_tag(:a, '×', :href=>'#', :class=>'close') + content_tag(:p) {message}
+          content_tag(:a, '×', :href=>'#', :class=>'close') + content_tag(:p) {message.to_s.html_safe}
         end
       end
 
@@ -26,7 +26,7 @@ module BootstrapHelpers
         content_tag :div, :class=>"alert-message #{equal_bootstrap_class(type)} block-message fade in", 
           'data-alert'=>'alert' do
             concat content_tag(:a, '×', :href=>'#', :class=>'close')
-            collection.each {|message| concat content_tag(:p, message)}
+            collection.each {|message| concat content_tag(:p, message.to_s.html_safe)}
         end
       end
 
